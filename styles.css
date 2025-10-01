@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+body{
+    display: grid;
+    min-height: 100vh;
+    grid-template-areas: 
+    "header" "header" "header"
+    "nav" "nav" "nav"
+    "asideLeft" "main" "main"
+    "asideLeft" "footer" "footer";
+}
+
+header{
+    grid-area: header;
+}
+
+nav{
+    grid-area: nav;
+}
+
+aside{
+    grid-area: asideLeft;
+}
+
+main{
+    grid-area: main;
+}
+
+footer{
+    grid-area: footer;
+}
