@@ -4,38 +4,103 @@
     box-sizing: border-box;
 }
 
-html, body{
-    height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+*{
+    border: 1px solid black;
 }
 
-body{
-    display: grid;
-    min-height: 100vh;
-    grid-template-areas: 
-    "header" "header" "header"
-    "nav" "nav" "nav"
-    "asideLeft" "main" "main"
-    "asideLeft" "footer" "footer";
+html, body{
+    /* height: 100%; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin: 0;
 }
+
+/* ===================================== */
+/* =========== MOBILE-FIRST ========== */
+/* ================================= */
+
+body {
+  display: flex;
+  flex-direction: column; /* stack elements vertically */
+  padding: 1rem;
+}
+
+/* ========================== */
+/* ==== HEADER SECTION ==== */
+/* ====================== */
 
 header{
     grid-area: header;
+    padding: 1rem;
+
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 nav{
-    grid-area: nav;
+   display: flex;
+   flex-direction: row;
+   justify-content:space-evenly;
+   flex-wrap: wrap;
+   align-items: center;
+   width: 100%;
+}
+
+nav a{
+    text-decoration: none;
 }
 
 aside{
     grid-area: asideLeft;
+    padding: 1rem;
 }
 
 main{
     grid-area: main;
+    padding: 1rem;
 }
 
 footer{
     grid-area: footer;
+    padding: 1rem;
+}
+
+nav a{
+
+}
+
+
+
+
+nav ul {
+  display: flex;
+  flex-direction: column; /* vertical menu on small screens */
+  gap: 0.5rem;
+}
+
+/* Tablet & up (bigger screens) */
+@media (min-width: 600px) {
+  nav ul {
+    flex-direction: row; /* horizontal menu */
+    justify-content: center;
+  }
+}
+
+/* Desktop & up (even bigger) */
+@media (min-width: 1024px) {
+    body{
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 200px 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
+    grid-template-areas: 
+    "header header header"
+    "asideLeft main main"
+    "asideLeft footer footer";
+}
 }
