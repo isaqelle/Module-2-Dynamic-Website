@@ -4,6 +4,22 @@
     box-sizing: border-box;
 }
 
+:root{
+    --borderRadius1: 1rem;
+
+    /* COLOR PALETTE */
+    --gradient1: linear-gradient(0deg,rgba(251, 213, 189, 1) 0%, rgba(251, 245, 240, 1) 50%);
+    --gradient2: linear-gradient(0deg,rgba(199, 194, 206, 1) 0%, rgba(251, 213, 189, 1) 50%);
+    --gradient3: linear-gradient(0deg,rgba(199, 194, 206, 1) 0%, rgba(138, 131, 218, 1) 50%);
+    --gradient4: linear-gradient(0deg,rgba(251, 213, 189, 1) 0%, rgba(138, 131, 218, 1) 35%, rgba(70, 54, 153, 1) 65%, rgba(38, 35, 53, 1) 100%);
+    --gradient5: linear-gradient(0deg,rgba(70, 54, 153, 1) 0%, rgba(38, 35, 53, 1) 100%);
+
+    --bg: #f1f1f1;
+    --fg: #2c2627;
+
+    --softLavender: #c8a2c8;
+}
+
 *{
     border: 1px solid black;
 }
@@ -23,6 +39,11 @@ body {
   display: flex;
   flex-direction: column; /* stack elements vertically */
   padding: 1rem;
+  gap: 10px;
+  width: 90%;
+  margin: 0 auto;
+
+  background: var(--gradient4);
 }
 
 /* ========================== */
@@ -32,13 +53,14 @@ body {
 header{
     grid-area: header;
     padding: 1rem;
-
-    background-color: aquamarine;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+
+    background-color: var(--bg);
+    border-radius: var(--borderRadius1);
 }
 
 nav{
@@ -48,6 +70,8 @@ nav{
    flex-wrap: wrap;
    align-items: center;
    width: 100%;
+
+   
 }
 
 nav a{
@@ -57,11 +81,16 @@ nav a{
 aside{
     grid-area: asideLeft;
     padding: 1rem;
+
+    background-color: var(--bg);
+    border-radius: var(--borderRadius1);
 }
 
 main{
     grid-area: main;
     padding: 1rem;
+    background-color: var(--bg);
+    border-radius: var(--borderRadius1);
 }
 
 footer{
@@ -81,6 +110,47 @@ nav ul {
   flex-direction: column; /* vertical menu on small screens */
   gap: 0.5rem;
 }
+
+.section2{
+    background-color: aquamarine;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    height: 200px;
+}  
+
+
+
+#friendsIMG{
+    background-image: url(assets/friends.jpg);
+}
+
+#textingIMG {
+    background-image: url(assets/chatting.jpg);
+}   
+
+#computerIMG {
+    background-image: url(assets/womancomputer.jpg);
+}
+
+#friendsIMG, #textingIMG, #computerIMG{
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    border: 2px solid red;
+    
+}
+
+.purpose{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg);
+    opacity: 80%;
+    height: 100px;
+}
+
 
 /* Tablet & up (bigger screens) */
 @media (min-width: 600px) {
