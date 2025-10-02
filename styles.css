@@ -63,6 +63,13 @@ header{
     border-radius: var(--borderRadius1);
 }
 
+header h1{
+    font-family:Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin: 10px;
+}
+
 nav{
    display: flex;
    flex-direction: row;
@@ -71,12 +78,22 @@ nav{
    align-items: center;
    width: 100%;
 
-   
 }
 
 nav a{
     text-decoration: none;
+    color: var(--fg);
+    font-family: monospace;
 }
+
+nav a:hover{
+    letter-spacing: 2px;
+    color: white;
+}
+
+/* ========================== */
+/* ==== ASIDE SECTION ===== */
+/* ======================= */
 
 aside{
     grid-area: asideLeft;
@@ -86,6 +103,10 @@ aside{
     border-radius: var(--borderRadius1);
 }
 
+/* ========================== */
+/* ==== MAIN SECTION ======= */
+/* ======================== */
+
 main{
     grid-area: main;
     padding: 1rem;
@@ -93,22 +114,32 @@ main{
     border-radius: var(--borderRadius1);
 }
 
+/* ========================== */
+/* ==== FOOTER SECTION ===== */
+/* ======================== */
+
 footer{
     grid-area: footer;
     padding: 1rem;
+
+    background-color: var(--bg);
+    border-radius: var(--borderRadius1);
 }
 
-nav a{
-
+/* =========================== */
+/* ==== SECTIONs styling ==== */
+/* ========================= */
+section p,li{
+    font-family: monospace;
 }
 
+section h2{
+    text-align: center;
+    margin: 0;
+}
 
-
-
-nav ul {
-  display: flex;
-  flex-direction: column; /* vertical menu on small screens */
-  gap: 0.5rem;
+.section1 p{
+    font-size: 14px;
 }
 
 .section2{
@@ -138,17 +169,19 @@ nav ul {
     background-size: cover;
     background-position: center;
     height: 100%;
-    border: 2px solid red;
-    
+
+    display: flex;
+    justify-content:center;
+    align-items: center;
 }
 
 .purpose{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: start;
     background-color: var(--bg);
-    opacity: 80%;
+    opacity: 70%;
     height: 100px;
+    width: 100%;
 }
 
 
