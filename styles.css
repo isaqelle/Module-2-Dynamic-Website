@@ -96,6 +96,7 @@ main{
 footer{
     grid-area: footer;
     padding: 1rem;
+
 }
 
 nav a{
