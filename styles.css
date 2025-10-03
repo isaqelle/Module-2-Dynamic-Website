@@ -57,10 +57,7 @@ body {
 header{
     grid-area: header;
     padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     flex-wrap: wrap;
 
     background-color: var(--bg);
@@ -73,7 +70,8 @@ header h1{
     text-transform: uppercase;
     font-size: 50px;
     margin: 10px;
-    word-spacing: 1rem;
+    word-spacing: 0.5rem;
+    width: auto;
 }
 
 nav{
@@ -128,6 +126,13 @@ main{
     border-radius: var(--borderRadius1);
 }
 
+#containerWrapper{
+    background-color: #fff;
+    border-radius: var(--borderRadius2);
+    height: 100%;
+    width: 100%;
+}
+
 /* ========================== */
 /* ==== FOOTER SECTION ===== */
 /* ======================== */
@@ -139,25 +144,30 @@ footer{
     border-radius: var(--borderRadius1);
 }
 
-/* =========================== */
-/* ==== SECTIONs styling ==== */
-/* ========================= */
+/* ========================== */
+/* ==== SECTION styling ==== */
+/* ======================== */
+
+section{
+    padding: 1rem;
+}
 section p,li{
-    font-family: monospace;
+    /* font-family: monospace; */
 }
 
 section h2{
     text-align: center;
-    margin: 10px;
+    margin: 5;
 
     text-transform: uppercase;
 }
 
-.section1{
+/* ============================ */
+/* ==== SECTION 1 styling ==== */
+/* ========================== */
+
+.section1 ,.section2, .section3{
     padding: 10px;
-    margin-bottom: 10px;
-    background-color: #fff;
-    border-radius: var(--borderRadius2);
 }
 
 .section1 p{
@@ -165,34 +175,64 @@ section h2{
     line-height: 17px;
 }
 
+#signUpBtn{
+    border: 1px solid black;
+    
+    display: flex;
+    justify-content: center;
+    
+    
+}
 
+#signUpBtn a{
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #c8a2c8;
+    width: 20%;
+    
+}
+
+#signUpBtn a:hover{
+    background-color: #000;
+}
+
+
+
+/* ============================ */
+/* ==== SECTION 2 styling ==== */
+/* ========================== */
 
 .section2{
     display: grid;
     grid-template-columns: auto auto auto;
+    text-align: center;
 }  
 
 .section2 p{
     padding: 5px;
-    text-transform: lowercase;
     font-style: italic;
-    text-align: center;
     opacity: 80%;
 }
 
+/* ============================ */
+/* ==== SECTION 3 styling ==== */
+/* ========================== */
 
 .section3 #getStartedWrapper{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    flex-wrap: wrap;
+    height: auto;
     object-fit:contain;
 }
 
 .section3 article{
     padding: 8px;
-    height: auto;
+    height: 100%;
     width: 100%;
 
     color: white;
@@ -244,26 +284,34 @@ section h2{
 
     display: flex;
     justify-content:center;
-    align-items: center;
+    align-items: end;
 }
 
  .purpose{
     display: flex;
     align-items: start;
     background-color: var(--bg);
-    opacity: 70%;
+    opacity: 80%;
     height: 100px;
     width: 100%;
     margin: 0px;
     padding: 5;
 }
 
+/* article{
+    margin-bottom: 20px;
+} */
+
+/* ============================ */
+/* ==== FOOTER SECTION ======= */
+/* ========================== */
 
 footer{
     display: flex;
     justify-content: center;
     align-items: center;
     font-style: italic;
+    font-size: 14px;
 }
 
 
