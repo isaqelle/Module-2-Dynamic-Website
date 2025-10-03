@@ -29,9 +29,6 @@
 } */
 
 html, body{
-    /* height: 100%; */
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
     margin: 0;
 }
 
@@ -40,6 +37,8 @@ html, body{
 /* ================================= */
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
   display: flex;
   flex-direction: column; /* stack elements vertically */
   padding: 1rem;
@@ -72,8 +71,9 @@ header{
 header h1{
     font-family:Arial, Helvetica, sans-serif;
     text-transform: uppercase;
-    font-size: 40px;
+    font-size: 50px;
     margin: 10px;
+    word-spacing: 1rem;
 }
 
 nav{
@@ -88,8 +88,16 @@ nav{
 
 nav a{
     text-decoration: none;
-    color: var(--fg);
+    text-transform: uppercase;
+    color: #fff;
     font-family: monospace;
+    width:max-content;
+
+    background-color: var(--fg);
+    padding: 5px 30px;
+    margin: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 nav a:hover{
@@ -161,9 +169,7 @@ section h2{
 
 .section2{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 100%;
-    height: 200px;
+    grid-template-columns: auto auto auto;
 }  
 
 .section2 p{
@@ -174,17 +180,20 @@ section h2{
     opacity: 80%;
 }
 
+
 .section3 #getStartedWrapper{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 100px;
+    object-fit:contain;
 }
 
 .section3 article{
     padding: 8px;
-    height: 100%;
+    height: auto;
+    width: 100%;
 
     color: white;
     background: var(--gradient3);
@@ -210,6 +219,12 @@ section h2{
     background-color: white;
 }
 
+.articleGrid{
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+
 #friendsIMG{
     background-image: url(assets/friends.jpg);
 }
@@ -225,20 +240,22 @@ section h2{
 #friendsIMG, #textingIMG, #computerIMG{
     background-size: cover;
     background-position: center;
-    height: 100%;
+    height: 200px;
 
     display: flex;
     justify-content:center;
     align-items: center;
 }
 
-.purpose{
+ .purpose{
     display: flex;
     align-items: start;
     background-color: var(--bg);
     opacity: 70%;
     height: 100px;
     width: 100%;
+    margin: 0px;
+    padding: 5;
 }
 
 
@@ -248,6 +265,8 @@ footer{
     align-items: center;
     font-style: italic;
 }
+
+
 
 /* Tablet & up (bigger screens) */
 @media (min-width: 600px) {
