@@ -127,7 +127,6 @@ main{
 footer{
     grid-area: footer;
     padding: 1rem;
-
     background-color: var(--bg);
     border-radius: var(--borderRadius1);
 }
