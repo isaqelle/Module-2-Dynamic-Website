@@ -7,9 +7,13 @@
 :root{
     --borderRadius1: 1rem;
     --borderRadius2: 0.5rem;
+    --borderRadius3: 1.5rem;
 
-    --boxShadow: box-shadow: 0px 0px 23px -14px rgba(66, 68, 90, 1);
-    --boxShadow2: box-shadow: 0px 0px 29px -4px rgba(66, 68, 90, 1);
+    /* for main content: */
+    --boxShadow: 0px 0px 23px -14px rgba(66, 68, 90, 1);
+    /* for buttons: */
+    --boxShadow1: 0px 0px 10px -4px rgba(66, 68, 90, 0.77);
+    --boxShadow2: 0px 0px 29px -4px rgba(66, 68, 90, 1);
 
     /* COLOR PALETTE */
     --gradient1: linear-gradient(0deg,rgba(251, 213, 189, 1) 0%, rgba(251, 245, 240, 1) 50%);
@@ -74,9 +78,11 @@ header h1{
     width: auto;
 }
 
+
+
 nav{
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    justify-content:space-evenly;
    flex-wrap: wrap;
    align-items: center;
@@ -92,27 +98,61 @@ nav a{
     width:max-content;
 
     background-color: var(--fg);
-    padding: 5px 30px;
+    padding: 5px 10px;
+    width: 100%;
     margin: 10px;
     font-weight: bold;
     letter-spacing: 2px;
 }
 
 nav a:hover{
-    letter-spacing: 2px;
-    color: white;
+    text-decoration: underline;
+    font-style: italic;
 }
 
 /* ========================== */
 /* ==== ASIDE SECTION ===== */
 /* ======================= */
+#socialMediaLogos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+#socialMediaLogos img{
+    width: 35px;
+    
+}
+
+#socialMediaLogos .logo{
+    background-color: var(--softLavender);
+    border: 3.5px solid #2c2627;
+    border-radius: 50%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    box-shadow: var(--boxShadow1);
+
+    transition:background-color 0.3s ease-in;
+}
+
+#socialMediaLogos .logo:hover{
+    background-color: var(--bg);
+}
+
 
 aside{
     grid-area: asideLeft;
     padding: 1rem;
 
+
     background-color: var(--bg);
     border-radius: var(--borderRadius1);
+    
 }
 
 /* ========================== */
@@ -176,12 +216,8 @@ section h2{
 }
 
 #signUpBtn{
-    border: 1px solid black;
-    
     display: flex;
     justify-content: center;
-    
-    
 }
 
 #signUpBtn a{
@@ -190,12 +226,19 @@ section h2{
     display: flex;
     justify-content: center;
     background-color: #c8a2c8;
-    width: 20%;
-    
+    width: 60%;
+    min-width: fit-content;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: var(--borderRadius3);
+    transition: letter-spacing 0.5s ease-in, background-color 0.5s ease-in;
 }
 
 #signUpBtn a:hover{
     background-color: #000;
+    letter-spacing: 3px;
 }
 
 
@@ -206,7 +249,9 @@ section h2{
 
 .section2{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    width: 100%;
+    gap:10px;
     text-align: center;
 }  
 
@@ -222,18 +267,20 @@ section h2{
 
 .section3 #getStartedWrapper{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     flex-wrap: wrap;
     height: auto;
     object-fit:contain;
+
 }
 
 .section3 article{
     padding: 8px;
     height: 100%;
     width: 100%;
+    flex: 0 0 auto;
 
     color: white;
     background: var(--gradient3);
@@ -259,10 +306,7 @@ section h2{
     background-color: white;
 }
 
-.articleGrid{
-    grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr 1fr;
-}
+
 
 
 #friendsIMG{
@@ -290,6 +334,7 @@ section h2{
  .purpose{
     display: flex;
     align-items: start;
+    justify-content: center;
     background-color: var(--bg);
     opacity: 80%;
     height: 100px;
@@ -318,8 +363,8 @@ footer{
 
 /* Tablet & up (bigger screens) */
 @media (min-width: 600px) {
-  nav ul {
-    flex-direction: row; /* horizontal menu */
+  nav  {
+    flex-direction: row;
     justify-content: center;
   }
 }
@@ -336,5 +381,50 @@ footer{
     "header header header"
     "asideLeft main main"
     "asideLeft footer footer";
+    width: 70%;
 }
+
+ header nav  {
+    display: flex;
+    flex-direction: row;
+
+    background-color: #c8a2c8;
+  }
+
+header h1{
+    font-size: 80px;
+}
+
+
+#socialMediaLogos {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 30%;
+
+    height: 350px;
+
+}
+
+aside{
+    align-self: start;
+    height: 400px;
+}
+
+#getStartedWrapper {
+    flex-direction: row;
+    border: 1px solid red;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.section3 article{
+    width: auto;
+    
+}
+
+
 }
