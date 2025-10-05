@@ -16,13 +16,16 @@
     --boxShadow2: 0px 0px 29px -4px rgba(66, 68, 90, 1);
 
     /* COLOR PALETTE */
-    --bg: #ebf1fd;
-    --fg: #3a2d34;
+    --bg: #ede8f5;
+    --fg: #2d2c38;
 
-    --titles: #3f2a52;
-    --links: #75619d;
+    --titles: #b2a6d9;
+    --links: #f5c2c2;
+    --buttons: #708c82;
+
     --bg2: #beaed8;
     --bg3: #e6eff7;
+    --bg4: #e6eff777;
     
 }
 
@@ -31,9 +34,15 @@
     /* border: 1px solid black; */
 }
 
-.container > *{
-    border: 1px solid black;
-}
+/* GOOGLE FONT */
+/* .bodoni-moda-<uniquifier> {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+
 
 html, body{
     margin: 0;
@@ -43,9 +52,9 @@ html, body{
     color: var(--fg);
 }
 
-/* ================================ */
-/* ===== MOBILE FIRST LAYOUT ===== */
-/* ============================== */
+/* ========================================== */
+/* ========== MOBILE FIRST LAYOUT ========== */
+/* ======================================== */
 header{grid-area: header;}
 main{grid-area: main;}
 article{grid-area: article;}
@@ -53,23 +62,123 @@ aside{grid-area: aside;}
 footer{grid-area: footer;}
 
 .container{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "main"
+    "aside"
+    "footer";
+    grid-template-rows: 120px 1fr 1fr 1fr;
+    row-gap: 40px;
     min-height: 100vh;
 }
 
+h1, h2, h3{
+    font-family: "Bodoni Moda", serif;
+}
+
+/* ======================== */
+/* ==== HEADER STYLES ==== */
+/* ====================== */
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+header h1{
+    font-size: 50px;
+}
+header nav{
+   background-color: var(--fg);
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+
+}
+header nav a{
+    color: var(--links);
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+header nav a:hover{
+    color: var(--fg);
+    background-color: var(--links);
+    text-transform: uppercase;
+
+}
+
+#more{
+    display: none;
+}
+
+/* ========================= */
+/* ==== ARTICLE STYLES ==== */
+/* ======================= */
+article{
+    height: 100%;
+}
 
 
-/* ================================ */
-/* ===== TABLET LAYOUT =========== */
-/* ============================== */
+/* ========================= */
+/* ==== SECTION STYLES ==== */
+/* ======================= */
+
+section{
+    border: 2px solid blue;
+}
+
+.section2{
+    padding: var(--space2);
+}
+
+/* .section2 .boxGrid *{
+    border: 1px solid black;
+    gap: 10px;
+
+} */
+
+.boxGrid{
+    border: 2px solid red;
+    
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space2);
+}
+
+.boxGrid article{
+  background-color: var(--links);
+  color: var(--fg);
+  border: 1px solid black;
+  padding: var(--space2);
+  text-align: center;
+}
+
+/* ========================================== */
+/* ============= TABLET LAYOUT ============= */
+/* ======================================== */
 @media (min-width: 600px) {
-  
+  .container{
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "main main  aside"
+    "footer footer aside";
+}
 }
 
 
 
-/* ================================ */
-/* ===== DESKTOP LAYOUT ========== */
-/* ============================== */
+/* ========================================== */
+/* ============= DESKTOP LAYOUT ============ */
+/* ======================================== */
 @media (min-width: 1024px) {
   .container{
     display: grid;
