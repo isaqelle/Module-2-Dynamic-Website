@@ -5,9 +5,9 @@
 }
 
 :root{
-    --borderRadius1: 1rem;
-    --borderRadius2: 0.5rem;
-    --borderRadius3: 1.5rem;
+    --space1: 0.5rem;
+    --space2: 1rem;
+    --space3: 1.5rem;
 
     /* for main content: */
     --boxShadow: 0px 0px 23px -14px rgba(66, 68, 90, 1);
@@ -16,415 +16,190 @@
     --boxShadow2: 0px 0px 29px -4px rgba(66, 68, 90, 1);
 
     /* COLOR PALETTE */
-    --gradient1: linear-gradient(0deg,rgba(251, 213, 189, 1) 0%, rgba(251, 245, 240, 1) 50%);
-    --gradient2: linear-gradient(0deg,rgba(199, 194, 206, 1) 0%, rgba(251, 213, 189, 1) 50%);
-    --gradient3: linear-gradient(0deg,rgba(199, 194, 206, 1) 0%, rgba(138, 131, 218, 1) 50%);
-    --gradient4: linear-gradient(0deg,rgba(251, 213, 189, 1) 0%, rgba(138, 131, 218, 1) 35%, rgba(70, 54, 153, 1) 65%, rgba(38, 35, 53, 1) 100%);
-    --gradient5: linear-gradient(0deg,rgba(70, 54, 153, 1) 0%, rgba(38, 35, 53, 1) 100%);
+    --fg: #0f3561;
+    --bg: #feffff;
 
-    --bg: #f1f1f1;
-    --fg: #2c2627;
+    --light: #ebf1fd;
+
+
+    /* --links1: #cbc064;
+    --links2: #ffb6e3;
+
+    --sections: #ddd2c2; */
+    /* --gunmetal: #302e3b;
+    --darkElectricBlue: #61647c;
+    --greenText: #bdd3a8;
+    --shadowBlue: #7c8da6;
+    --pewterBlue: #89a2ba;
+    --grayX11: #beb3c3; */
+
+    /* --bg: #f1f1f1;
+    --fg: #2c2627; */
 
     --softLavender: #c8a2c8;
 }
 
-/* *{
-    border: 1px solid black;
-} */
+*{
+    margin: 0;
+    /* border: 1px solid black; */
+}
 
 html, body{
     margin: 0;
-}
-
-/* ===================================== */
-/* =========== MOBILE-FIRST ========== */
-/* ================================= */
-
-body {
+    height: 100%;
+    background-color: var(--bg);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-  display: flex;
-  flex-direction: column; /* stack elements vertically */
-  padding: 1rem;
-  gap: 10px;
-  width: 90%;
-  margin: 0 auto;
-
-  background: var(--gradient4);
-  color: var(--fg);
+    color: var(--fg);
 }
 
-/* ========================== */
-/* ==== HEADER SECTION ==== */
+/* =============================== */
+/* ======== MOBILE FIRST ======== */
+/* ============================= */
+
+.container{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "main"
+    "aside"
+    "footer";
+    grid-template-columns: auto;
+    grid-template-rows: 100px auto auto auto;
+    min-height: 100vh;
+
+}
+
+/* .container > *{
+    border: 2px solid blue;
+} */
+
+/* ======================== */
+/* ==== HEADER STYLES ==== */
 /* ====================== */
 
 header{
     grid-area: header;
-    padding: 1rem;
-    text-align: center;
-    flex-wrap: wrap;
 
-    background-color: var(--bg);
-    border-radius: var(--borderRadius1);
-    box-shadow: var(--boxShadow1);
+
+    background-color: var(--fg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header h1{
-    font-family:Arial, Helvetica, sans-serif;
+    margin-top: 10px;
     text-transform: uppercase;
+    color: #feffff;
     font-size: 50px;
-    margin: 10px;
-    word-spacing: 0.5rem;
-    width: auto;
 }
 
-
-
 nav{
-   display: flex;
-   flex-direction: column;
-   justify-content:space-evenly;
-   flex-wrap: wrap;
-   align-items: center;
-   width: 100%;
-
+    background-color: var(--light);
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: var(--space1);
 }
 
 nav a{
+    color: var(--links);
     text-decoration: none;
     text-transform: uppercase;
-    color: #fff;
-    font-family: monospace;
-    width:max-content;
-
-    background-color: var(--fg);
-    padding: 5px 10px;
-    width: 100%;
-    margin: 10px;
     font-weight: bold;
-    letter-spacing: 2px;
 }
 
-nav a:hover{
-    text-decoration: underline;
-    font-style: italic;
-}
-
-/* ========================== */
-/* ==== ASIDE SECTION ===== */
-/* ======================= */
-#socialMediaLogos {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-}
-
-#socialMediaLogos img{
-    width: 35px;
-    
-}
-
-#socialMediaLogos .logo{
-    background-color: var(--softLavender);
-    border: 3.5px solid #2c2627;
-    border-radius: 50%;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    box-shadow: var(--boxShadow1);
-
-    transition:background-color 0.3s ease-in;
-}
-
-#socialMediaLogos .logo:hover{
-    background-color: var(--bg);
-}
-
+/* ======================== */
+/* ==== ASIDE STYLES ===== */
+/* ====================== */
 
 aside{
-    grid-area: asideLeft;
-    padding: 1rem;
+    grid-area: aside;
 
-
-    background-color: var(--bg);
-    border-radius: var(--borderRadius1);
-    
+    background-color: var(--background2);
 }
 
-/* ========================== */
-/* ==== MAIN SECTION ======= */
 /* ======================== */
+/* ===== MAIN STYLES ===== */
+/* ====================== */
 
 main{
     grid-area: main;
-    padding: 1rem;
+
     background-color: var(--bg);
-    border-radius: var(--borderRadius1);
 }
 
-#containerWrapper{
-    background-color: #fff;
-    border-radius: var(--borderRadius2);
-    height: 100%;
-    width: 100%;
-}
+/* =========================== */
+/* ===== SECTION STYLES ===== */
+/* ========================= */
 
-/* ========================== */
-/* ==== FOOTER SECTION ===== */
-/* ======================== */
-
-footer{
-    grid-area: footer;
-    padding: 1rem;
-    background-color: var(--bg);
-    border-radius: var(--borderRadius1);
-}
-
-/* ========================== */
-/* ==== SECTION styling ==== */
-/* ======================== */
-
-section{
-    padding: 1rem;
-}
-section p,li{
-    /* font-family: monospace; */
+section, aside{
+    padding: var(--space2);
+    background-color: var(--light);
+    margin: var(--space2);
 }
 
 section h2{
-    text-align: center;
-    margin: 5;
-
     text-transform: uppercase;
+    color: var(--title);
 }
 
-/* ============================ */
-/* ==== SECTION 1 styling ==== */
-/* ========================== */
+/* ###### SECTION 1 ###### */
 
-.section1 ,.section2, .section3{
-    padding: 10px;
+.section1{
+
 }
 
-.section1 p{
-    font-size: 14px;
-    line-height: 17px;
-}
+/* ###### SECTION 2 ###### */
+.getStartedBoxes{
+    border: 1px solid black;
 
-#signUpBtn{
-    display: flex;
-    justify-content: center;
-}
-
-#signUpBtn a{
-    text-decoration: none;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: #c8a2c8;
-    width: 60%;
-    min-width: fit-content;
-    font-size: 20px;
-    text-transform: uppercase;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: var(--borderRadius3);
-    transition: letter-spacing 0.5s ease-in, background-color 0.5s ease-in;
-}
-
-#signUpBtn a:hover{
-    background-color: #000;
-    letter-spacing: 3px;
-}
-
-
-
-/* ============================ */
-/* ==== SECTION 2 styling ==== */
-/* ========================== */
-
-.section2{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    width: 100%;
-    gap:10px;
-    text-align: center;
-}  
-
-.section2 p{
-    padding: 5px;
-    font-style: italic;
-    opacity: 80%;
+    grid-template-columns: 1fr;
 }
 
-/* ============================ */
-/* ==== SECTION 3 styling ==== */
-/* ========================== */
-
-.section3 #getStartedWrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
-    height: auto;
-    object-fit:contain;
-
-}
-
-.section3 article{
-    padding: 8px;
-    height: 100%;
-    width: 100%;
-    flex: 0 0 auto;
-
-    color: white;
-    background: var(--gradient3);
-    margin: 3px;
-    text-transform: uppercase;
-    font-weight: bold;
-    line-height: 30px;
-    border-radius: var(--borderRadius2);
-    box-shadow: 0px 0px 23px -14px rgba(66, 68, 90, 1);
-}
-
-.section3 em{
-    font-size: 15px;
-    letter-spacing: 2px;
-}
-
-.section3 a{
-    color: white;
-}
-
-.section3 a:hover{
-    color: #000;
-    background-color: white;
-}
-
-
-
-
-#friendsIMG{
-    background-image: url(assets/friends.jpg);
-}
-
-#textingIMG {
-    background-image: url(assets/chatting.jpg);
-}   
-
-#computerIMG {
-    background-image: url(assets/womancomputer.jpg);
-}
-
-#friendsIMG, #textingIMG, #computerIMG{
-    background-size: cover;
-    background-position: center;
-    height: 200px;
-
-    display: flex;
-    justify-content:center;
-    align-items: end;
-}
-
- .purpose{
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    background-color: var(--bg);
-    opacity: 80%;
-    height: 100px;
-    width: 100%;
-    margin: 0px;
-    padding: 5;
-}
-
-/* article{
-    margin-bottom: 20px;
-} */
-
-/* ============================ */
-/* ==== FOOTER SECTION ======= */
-/* ========================== */
+/* ======================== */
+/* ==== FOOTER STYLES ==== */
+/* ====================== */
 
 footer{
+    grid-area: footer;
+
     display: flex;
     justify-content: center;
     align-items: center;
     font-style: italic;
-    font-size: 14px;
 }
 
 
-
-/* Tablet & up (bigger screens) */
+/* TABLET */
 @media (min-width: 600px) {
-  nav  {
-    flex-direction: row;
-    justify-content: center;
+  body{
+    background-color: purple;
   }
-}
 
-/* Desktop & up (even bigger) */
-@media (min-width: 1024px) {
-    body{
+  .getStartedBoxes{
+    border: 1px solid black;
+
     display: grid;
-    min-height: 100vh;
-    grid-template-columns: 200px 1fr 1fr;
-    grid-template-rows: auto 1fr auto;
-    gap: 10px;
-    grid-template-areas: 
-    "header header header"
-    "asideLeft main main"
-    "asideLeft footer footer";
-    width: 70%;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 }
 
- header nav  {
-    display: flex;
-    flex-direction: row;
-
-    background-color: #c8a2c8;
-  }
-
-header h1{
-    font-size: 80px;
-}
-
-
-#socialMediaLogos {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 30%;
-
-    height: 350px;
-
-}
-
-aside{
-    align-self: start;
-    height: 400px;
-}
-
-#getStartedWrapper {
-    flex-direction: row;
-    border: 1px solid red;
-    align-items: stretch;
-    justify-content: center;
-    flex-wrap: nowrap;
-}
-
-.section3 article{
-    width: auto;
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .container {
+    display: grid;
     
-}
-
-
+    grid-template-areas: 
+    "aside header header"
+    "aside main main"
+    "aside footer footer";
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 100px 3fr 1fr;
+  }
 }
