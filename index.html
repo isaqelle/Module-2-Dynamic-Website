@@ -13,15 +13,17 @@
 <body>
     <div class="container">
         <header>
+            <div class="headerWrapper">
             <h1>Website</h1>
             <nav>
-                <a href="index.html">Home</a>
-                <a href="posts.html">Pages</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="posts.html">Posts</a>
                 <a href="contact.html">Contact</a>
             </nav>
+        </div>
         </header>
     
-        <aside>
+        <aside id="asideRight">
             <h3>Follow us!</h3>
             <div class="logoWrapper">
                 <img src="assets/igLogo.svg" alt="Instagram">
@@ -36,10 +38,10 @@
             <span id="end"></span>
         <div id="more">
             <h2>Purpose and Vision</h2>
-            <p>At its core, Talk 2 Me was created to bridge the gap between online interaction and genuine human connection. In a world where social media often prioritizes numbers over meaning, Talk 2 Me focuses on real conversations, shared experiences, and authentic community building.
+            <p>At its core, <b><em>Talk 2 Me</em></b> was created to bridge the gap between online interaction and genuine human connection. In a world where social media often prioritizes numbers over meaning, <b><em>Talk 2 Me</em></b> focuses on real conversations, shared experiences, and authentic <em>community building</em>.
 
 
-The platform encourages users to speak their minds, discover new perspectives, and find common ground with others who share similar interests. Whether it’s discussing everyday topics, sharing personal stories, or exploring ideas, Talk 2 Me provides a space where every voice matters.</p>
+The platform encourages users to speak their minds, discover new perspectives, and find common ground with others who share similar interests. Whether it’s discussing everyday topics, sharing personal stories, or exploring ideas, <b><em>Talk 2 Me</em></b> provides <em>a space where every voice matters.</em></p>
 </div>
 <div class="btnWrapper">
 <button onclick="readMore()" id="moreBtn">Read more</button>
@@ -62,9 +64,8 @@ The platform encourages users to speak their minds, discover new perspectives, a
                 </div>
             </section>
         </main>
-        
-
-        
+        <aside id="asideLeft">
+        </aside>
 
         <footer>&copy; 2025 Website</footer>
     </div>

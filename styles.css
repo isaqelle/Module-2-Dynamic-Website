@@ -16,17 +16,13 @@
     --boxShadow2: 0px 0px 29px -4px rgba(66, 68, 90, 1);
 
     /* COLOR PALETTE */
-    --bg: #ede8f5;
+    --bg: #f6f6f6;
+    --bg2: #d8d8d8;
     --fg: #2d2c38;
 
-    --titles: #b2a6d9;
+    --purplebg: #b2a6d9;
     --links: #f5c2c2;
-    --buttons: #708c82;
-
-    --bg2: #beaed8;
-    --bg3: #e6eff7;
-    --bg4: #e6eff777;
-    
+    --green: #708c82;
 }
 
 *{
@@ -37,22 +33,15 @@
 /* ########## GOOGLE FONTS ########## */
 /* .bodoni-moda-<uniquifier> {
   font-family: "Bodoni Moda", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
 } */
 
 /* .gravitas-one-regular {
   font-family: "Gravitas One", serif;
-  font-weight: 400;
-  font-style: normal;
 } */
 
-
 html, body{
-    margin: 0;
     height: 100%;
-    background-color: var(--bg);
+    /* background-color: var(--bg); */
     font-family: Arial, Helvetica, sans-serif;
     color: var(--fg);
 }
@@ -60,54 +49,71 @@ html, body{
 /* ========================================== */
 /* ========== MOBILE FIRST LAYOUT ========== */
 /* ======================================== */
-header{grid-area: header;}
-main{grid-area: main;}
-article{grid-area: article;}
-aside{grid-area: aside;}
-footer{grid-area: footer;}
 
 .container{
     display: grid;
     grid-template-areas: 
     "header"
     "main"
-    "aside"
+    "asideRight"
     "footer";
-    grid-template-rows: 120px auto auto 100px;
-    row-gap: 20px;
+    grid-template-rows: auto auto auto 100px;
+    
     min-height: 100vh;
+}
+
+header{grid-area: header;}
+main{grid-area: main;}
+article{grid-area: article;}
+#asideRight{grid-area: asideRight;}
+#asideLeft{grid-area: asideLeft;}
+footer{grid-area: footer;}
+
+header, main, #asideRight, footer{
+
+    background-color: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 h1, h2, h3, .nbr{
     font-family: "Bodoni Moda", serif;
-    margin:10px 10px;
+    margin: 10px;
 }
 
 /* ======================== */
 /* ==== HEADER STYLES ==== */
 /* ====================== */
-header{
+.headerWrapper{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    height: 100%;
 }
+header{
+    height: fit-content;
+}
+
 header h1{
     font-size: 50px;
 }
-header nav{
+
+header nav,
+footer{
    background-color: var(--fg);
    width: 100%;
    display: flex;
    justify-content: space-around;
    align-items: center;
-
+   text-align: center;
 }
-header nav a{
+
+header nav a, footer{
     color: var(--links);
     text-transform: uppercase;
     width: 100%;
-    text-align: center;
     padding: 10px;
     font-weight: bold;
     text-decoration: none;
@@ -117,76 +123,77 @@ header nav a:hover{
     color: var(--fg);
     background-color: var(--links);
     text-transform: uppercase;
-
 }
 
-#more{
-    display: none;
-}
-
-/* ========================= */
-/* ==== ARTICLE STYLES ==== */
-/* ======================= */
-article{
-    height: 100%;
+.active{
+    background-color: var(--links);
+    color: var(--fg);
 }
 
 /* ========================= */
 /* ==== ASIDE STYLES ====== */
 /* ======================= */
-
-aside img{
-    width: 60px;
+#asideRight, header{
     background-color: var(--bg2);
+    height: 100%;
+}
+
+#asideRight img{
+    width: 60px;
     padding: 5px;
     border-radius: 5px;
     transition: opacity 0.4s ease-in;
 }
 
-aside img:hover{
+#asideRight img:hover{
     opacity: 50%;
-    background-color: var(--bg);
 }
 
 .logoWrapper{
-    background-color: var(--bg2);
+    /* background-color: var(--bg2); */
     padding: 10px;
     border-radius: var(--space2);
 
     display:flex;
     justify-content: space-around;
     align-items: center;
-
 }
 
 
 /* =========================== */
 /* ==== SECTION 1 STYLES ==== */
 /* ========================= */
-/* 
-section{
-    border: 2px solid blue;
-} */
 
-.section1, aside{
-    background-color: var(--bg3);
+.section1, #asideRight{
+    /* background-color: var(--bg3); */
     padding: var(--space1);
+    
 }
 
-.section1 button{
+.section1 p,
+#more p{
+    line-height: 25px;
+}
+
+.section1 button,
+form button{
     background-color: var(--fg);
     border: none;
-    padding: 10px 30px;
+    padding: 10px 40px;
     border-radius: var(--space3);
     text-transform: uppercase;
     color: var(--links);
-    font-weight: bold;
+    font-size: 15px;
     cursor: pointer;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 
     transition: all 0.4s ease-in;
 }
 
-.section1 button:hover{
+.section1 button:hover,
+form button:hover{
     background-color: var(--links);
     color: var(--fg);
 }
@@ -198,6 +205,10 @@ section{
     align-items: center;
 }
 
+#more{
+    display: none;
+}
+
 /* =========================== */
 /* ==== SECTION 2 STYLES ==== */
 /* ========================= */
@@ -207,7 +218,6 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--bg3);
 }
 
 .gridBoxes{
@@ -230,11 +240,11 @@ section{
     color: var(--links);
 }
 .item1, .item3{
-    background-color: var(--buttons);   
+    background-color: var(--green);   
 }
 
 .item2{
-    background-color: var(--titles);
+    background-color: var(--purplebg);
 }
 
 .nbr{
@@ -270,36 +280,105 @@ footer{
 /* CONTACT STYLES */
 
 .formContainer{
-    border: 1px solid red;
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    /* background-color: #f6f6f6; */
+    padding: 20px;
+    border-radius: var(--space1);
 }
 
-/* ========================================== */
-/* ============= TABLET LAYOUT ============= */
-/* ======================================== */
-@media (min-width: 600px) {
-  .container{
-    display: grid;
-    grid-template-areas: 
-    "header header header"
-    "main main  aside"
-    "footer footer aside";
-}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space2);
+    margin: var(--space2);
 }
 
+#name, #email{
+    width: 100%;
+    padding: 4px;
+    margin-bottom: 10px;
+}
 
+.nameEmailWrapper{
+    width: 100%;
+    height: 120px;
+    padding: var(--space1);
+}
+
+.formContainer h3{
+    font-size: 30px;
+    margin: 0;
+    text-align: center;
+}
 
 /* ========================================== */
 /* ============= DESKTOP LAYOUT ============ */
 /* ======================================== */
 @media (min-width: 1024px) {
+
+    body{
+        background-color: var(--bg2);
+    }
   .container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 200px auto auto 300px;
+    grid-template-rows: 140px auto 100px;
     grid-template-areas: 
-    "header header header header"
-    "main main main aside"
-    "article article article aside"
+    "asideLeft header header asideRight"
+    "asideLeft main main asideRight"
     "footer footer footer footer";
   }
+
+  #asideRight, #asideLeft{
+    background-color: var(--fg);
+    color: var(--bg);
+  }
+
+  .logoWrapper{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .logoWrapper img{
+    background-color: var(--links);
+  }
+
+
+.gridBoxes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 10px;
+    width: 70%;
+}
+
+.item{
+    height: 300px;
+}
+.nbr{
+    font-size: 60px;
+}
+.item p{
+    font-size: 20px;
+}
+
+#asideRight{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.section1{
+    margin: 0 auto;
+    width: 70%;
+}
+
+.formContainer{
+    background-color: #d8d8d8;
+    height: 400px;
+}
+
 }
