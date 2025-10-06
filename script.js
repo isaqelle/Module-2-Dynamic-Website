@@ -10,3 +10,10 @@ function readMore() {
         moreBtn.textContent = "Read more";
     }
 }
+
+// FORM
+
+function validateForm() {
+    let name = form["name"].value;
+    let email = form["email"].value;
+}

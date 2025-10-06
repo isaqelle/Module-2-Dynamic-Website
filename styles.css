@@ -260,10 +260,17 @@ section{
 /* ========================= */
 
 footer{
-    border: 2px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+
+/* CONTACT STYLES */
+
+.formContainer{
+    border: 1px solid red;
 }
 
 /* ========================================== */
