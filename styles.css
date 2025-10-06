@@ -34,7 +34,7 @@
     /* border: 1px solid black; */
 }
 
-/* GOOGLE FONT */
+/* ########## GOOGLE FONTS ########## */
 /* .bodoni-moda-<uniquifier> {
   font-family: "Bodoni Moda", serif;
   font-optical-sizing: auto;
@@ -42,6 +42,11 @@
   font-style: normal;
 } */
 
+/* .gravitas-one-regular {
+  font-family: "Gravitas One", serif;
+  font-weight: 400;
+  font-style: normal;
+} */
 
 
 html, body{
@@ -73,7 +78,7 @@ footer{grid-area: footer;}
     min-height: 100vh;
 }
 
-h1, h2, h3{
+h1, h2, h3, .nbr{
     font-family: "Bodoni Moda", serif;
 }
 
@@ -126,40 +131,97 @@ article{
 }
 
 
+/* =========================== */
+/* ==== SECTION 1 STYLES ==== */
 /* ========================= */
-/* ==== SECTION STYLES ==== */
-/* ======================= */
-
+/* 
 section{
     border: 2px solid blue;
+} */
+
+.section1, aside{
+    background-color: var(--bg3);
+    padding: var(--space1);
 }
+
+.section1 button{
+    background-color: var(--fg);
+    border: none;
+    padding: 10px 30px;
+    border-radius: var(--space3);
+    text-transform: uppercase;
+    color: var(--links);
+    font-weight: bold;
+}
+
+.section1 button:hover{
+    background-color: var(--links);
+    color: var(--fg);
+}
+
+.btnWrapper{
+    margin: var(--space3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================== */
+/* ==== SECTION 2 STYLES ==== */
+/* ========================= */
 
 .section2{
     padding: var(--space2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg3);
 }
 
-/* .section2 .boxGrid *{
-    border: 1px solid black;
-    gap: 10px;
-
-} */
-
-.boxGrid{
-    border: 2px solid red;
-    
-
+.gridBoxes{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space2);
+    gap: 10px;
+    width: 80%;
 }
 
-.boxGrid article{
-  background-color: var(--links);
-  color: var(--fg);
-  border: 1px solid black;
-  padding: var(--space2);
-  text-align: center;
+.item{
+    height: 120px;
+    padding: var(--space2);
+    border-radius: var(--space2);
+
+    margin-bottom: var(--space2);
+    box-shadow: var(--boxShadow1);
 }
+
+.item1 .nbr,
+.item3 .nbr{
+    color: var(--links);
+}
+.item1, .item3{
+    background-color: var(--buttons);   
+}
+
+.item2{
+    background-color: var(--titles);
+}
+
+.nbr{
+    display: block;
+    font-size: 40px;
+    font-family: "Gravitas One", serif;
+}
+
+.item a{
+    color: var(--fg);
+    font-style: italic;
+}
+
+.item a:hover{
+    background-color: var(--links);
+    padding: 2px;
+}
+
+
 
 /* ========================================== */
 /* ============= TABLET LAYOUT ============= */
