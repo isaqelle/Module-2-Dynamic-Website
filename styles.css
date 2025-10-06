@@ -73,13 +73,14 @@ footer{grid-area: footer;}
     "main"
     "aside"
     "footer";
-    grid-template-rows: 120px 1fr 1fr 1fr;
-    row-gap: 40px;
+    grid-template-rows: 120px auto auto 100px;
+    row-gap: 20px;
     min-height: 100vh;
 }
 
 h1, h2, h3, .nbr{
     font-family: "Bodoni Moda", serif;
+    margin:10px 10px;
 }
 
 /* ======================== */
@@ -130,6 +131,34 @@ article{
     height: 100%;
 }
 
+/* ========================= */
+/* ==== ASIDE STYLES ====== */
+/* ======================= */
+
+aside img{
+    width: 60px;
+    background-color: var(--bg2);
+    padding: 5px;
+    border-radius: 5px;
+    transition: opacity 0.4s ease-in;
+}
+
+aside img:hover{
+    opacity: 50%;
+    background-color: var(--bg);
+}
+
+.logoWrapper{
+    background-color: var(--bg2);
+    padding: 10px;
+    border-radius: var(--space2);
+
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
 
 /* =========================== */
 /* ==== SECTION 1 STYLES ==== */
@@ -152,6 +181,9 @@ section{
     text-transform: uppercase;
     color: var(--links);
     font-weight: bold;
+    cursor: pointer;
+
+    transition: all 0.4s ease-in;
 }
 
 .section1 button:hover{
@@ -214,14 +246,25 @@ section{
 .item a{
     color: var(--fg);
     font-style: italic;
+    transition: all 0.4s ease;
 }
 
 .item a:hover{
     background-color: var(--links);
+    letter-spacing: 2px;
     padding: 2px;
 }
 
+/* =========================== */
+/* ===== FOOTER STYLES ====== */
+/* ========================= */
 
+footer{
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* ========================================== */
 /* ============= TABLET LAYOUT ============= */
