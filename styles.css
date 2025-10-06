@@ -74,7 +74,6 @@ header, main, #asideRight, footer{
     background-color: var(--bg);
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 h1, h2, h3, .nbr{
@@ -288,10 +287,18 @@ footer{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-
+    background-color: #d8d8d8;
+    height: 400px;
     /* background-color: #f6f6f6; */
     padding: 20px;
     border-radius: var(--space1);
+    margin-top: 40px;
+}
+
+.formContainer h3{
+    font-size: 30px;
+    margin: 0;
+    text-align: center;
 }
 
 form{
@@ -313,11 +320,7 @@ form{
     padding: var(--space1);
 }
 
-.formContainer h3{
-    font-size: 30px;
-    margin: 0;
-    text-align: center;
-}
+
 
 /* ========================================== */
 /* ============= TABLET LAYOUT ============= */
@@ -398,9 +401,5 @@ form{
     width: 70%;
 }
 
-.formContainer{
-    background-color: #d8d8d8;
-    height: 400px;
-}
 
 }
