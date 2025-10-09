@@ -15,15 +15,27 @@ function readMore() {
 // FORM
 
 function validateForm() {
-    let form = document.forms["myForm"];
+    const form = document.getElementById("myFrom");
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
 
-    let name = form["name"].value;
-    let email = form["email"].value;
+    const missingName = document.getElementById("missingName");
 
     let valid = true;
 
-    if (name === "" || email === "") {
-        alert("All fields must be filled out.")
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        if (name === "" || email === "") {
+            // clear old msg:
+            missingName.textContent = "";
+
+            const errorTxt = document.createElement("p");
+            errorTxt.textContent = "Can't add an empty item.";
+            errorTxt.style.color = "red";
+
+            missingName.append(errorTxt);
+        // alert("All fields must be filled out.")
         return false;
     }
 
@@ -44,6 +56,8 @@ function validateForm() {
 
     alert("Thank you for contacting us!");
     return valid;
+    })
+    
 }
 
 

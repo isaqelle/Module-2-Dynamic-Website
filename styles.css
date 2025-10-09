@@ -335,17 +335,13 @@ form{
 /* ======================================== */
 @media (min-width: 600px) {
      .container{
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 5fr 4fr;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
         grid-template-areas: 
         "header header header"
-        "main main asideRight"
+        "main main main"
         "footer footer footer"; 
     } 
-    .logoWrapper{ 
-        display:flex;
-        flex-direction: column;
-     } 
  }
 /* ========================================== */
 /* ============= DESKTOP LAYOUT ============ */
@@ -357,7 +353,7 @@ form{
     }
   .container{
     grid-template-columns: 200px auto auto 200px;
-    grid-template-rows: 140px auto 100px;
+    grid-template-rows: 140px auto 200px;
     grid-template-areas: 
     "asideLeft header header asideRight"
     "asideLeft main main asideRight"
@@ -392,11 +388,8 @@ form{
     font-size: 20px;
 }
 
-#asideRight{
-    display: flex;
-    justify-content: flex-start;
-}
 
+/* Centers main contenet */
 .section1{
     margin: 0 auto;
     width: 70%;
