@@ -32,18 +32,20 @@
             <section>
                 <div class="formContainer">
                     <h3>Contact us</h3>
-                    <form method="get" name="myForm" id="myForm" method="post" onsubmit="return validateForm()">
+                    <form method="get" name="myForm" id="myForm">
                         <div class="nameEmailWrapper">
                         <label for="name">Name:
                             <input type="text" name="name" id="name" placeholder="John Doe">
-                        </label><div class="missingName"></div>
+                        </label><div id="missingName"></div>
 
                         <label for="email">Email:
                             <input type="email" name="email" id="email" placeholder="john.doe@gmail.com">
-                        </label>
-                    </div>
+                            
+                        </label><div id="missingEmail"></div><div id="validEmail"></div>
+                    
                         <label for="checkbox">Confirm to send:
                             <input type="checkbox" name="checkbox" id="checkbox">
+                            <div id="noCheck"></div>
                         </label>
 
                         <button type="submit">Send</button>
