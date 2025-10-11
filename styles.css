@@ -1,33 +1,33 @@
 *,
 *::after,
-*::before{
-    box-sizing: border-box;
+*::before {
+  box-sizing: border-box;
 }
 
-:root{
-    --space1: 0.5rem;
-    --space2: 1rem;
-    --space3: 1.5rem;
+:root {
+  --space1: 0.5rem;
+  --space2: 1rem;
+  --space3: 1.5rem;
 
-    /* for main content: */
-    --boxShadow: 0px 0px 23px -14px rgba(66, 68, 90, 1);
-    /* for buttons: */
-    --boxShadow1: 0px 0px 10px -4px rgba(66, 68, 90, 0.77);
-    --boxShadow2: 0px 0px 29px -4px rgba(66, 68, 90, 1);
+  /* for main content: */
+  --boxShadow: 0px 0px 23px -14px rgba(66, 68, 90, 1);
+  /* for buttons: */
+  --boxShadow1: 0px 0px 10px -4px rgba(66, 68, 90, 0.77);
+  --boxShadow2: 0px 0px 29px -4px rgba(66, 68, 90, 1);
 
-    /* COLOR PALETTE */
-    --bg: #f6f6f6;
-    --bg2: #d8d8d8;
-    --fg: #2d2c38;
+  /* COLOR PALETTE */
+  --bg: #f6f6f6;
+  --bg2: #d8d8d8;
+  --fg: #2d2c38;
 
-    --purplebg: #b2a6d9;
-    --links: #f5c2c2;
-    --green: #708c82;
+  --purplebg: #b2a6d9;
+  --links: #f5c2c2;
+  --green: #708c82;
 }
 
-*{
-    margin: 0;
-    /* border: 1px solid black; */
+* {
+  margin: 0;
+  /* border: 1px solid black; */
 }
 
 /* ########## GOOGLE FONTS ########## */
@@ -39,373 +39,378 @@
   font-family: "Gravitas One", serif;
 } */
 
-html, body{
-    height: 100%;
-    /* background-color: var(--bg); */
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--fg);
-    background-color: var(--fg);
+html,
+body {
+  height: 100%;
+  /* background-color: var(--bg); */
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--fg);
+  background-color: var(--fg);
 }
-
-
 
 /* ========================================== */
 /* ========== MOBILE FIRST LAYOUT ========== */
 /* ======================================== */
 
-.container{
-    display: grid;
-    grid-template-areas: 
+.container {
+  display: grid;
+  grid-template-areas:
     "header"
     "main"
     "asideRight"
     "footer";
-    grid-template-rows: auto 3fr 1fr 100px;
-    grid-template-columns: 1fr;
-    min-height: 100vh;
+  grid-template-rows: auto 3fr 1fr 100px;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
 }
 
-header{grid-area: header;}
-main{grid-area: main;}
-article{grid-area: article;}
-#asideRight{grid-area: asideRight;}
-#asideLeft{grid-area: asideLeft;}
-footer{grid-area: footer;}
-
-header, main, #asideRight, footer{
-
-    background-color: var(--bg);
-    display: flex;
-    flex-direction: column;
+header {
+  grid-area: header;
+}
+main {
+  grid-area: main;
+}
+article {
+  grid-area: article;
+}
+#asideRight {
+  grid-area: asideRight;
+}
+#asideLeft {
+  grid-area: asideLeft;
+}
+footer {
+  grid-area: footer;
 }
 
-h1, h2, h3, .nbr{
-    font-family: "Bodoni Moda", serif;
-    margin: 10px;
+header,
+main,
+#asideRight,
+footer {
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+.nbr {
+  font-family: "Bodoni Moda", serif;
+  margin: 10px;
 }
 
 /* ############# BUTTON STYLES ############# */
 
-button, 
-.section1 button, 
+button,
+.section1 button,
 form button {
-    background-color: var(--fg);
-    border: none;
-    border-radius: var(--space3);
-    padding: 10px 40px;
-    text-transform: uppercase;
-    color: var(--links);
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    cursor: pointer;
-    letter-spacing: 2px;
-    transition: all 0.4s ease-in;
+  background-color: var(--fg);
+  border: none;
+  border-radius: var(--space3);
+  padding: 10px 40px;
+  text-transform: uppercase;
+  color: var(--links);
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.4s ease-in;
 }
 button:hover {
-    background-color: var(--links);
-    color: var(--fg);
+  background-color: var(--links);
+  color: var(--fg);
 }
 
 /* ####################################### */
 
-
 /* ======================== */
 /* ==== HEADER STYLES ==== */
 /* ====================== */
-.headerWrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
+.headerWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
-header{
-    height: fit-content;
+header {
+  height: fit-content;
 }
 
-header h1{
-    font-size: 50px;
+header h1 {
+  font-size: 50px;
 }
 
 header nav,
-footer{
-   background-color: var(--fg);
-   width: 100%;
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-   text-align: center;
+footer {
+  background-color: var(--fg);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
 }
 
-header nav a, footer{
-    color: var(--links);
-    text-transform: uppercase;
-    width: 100%;
-    padding: 10px;
-    font-weight: bold;
-    text-decoration: none;
+header nav a,
+footer {
+  color: var(--links);
+  text-transform: uppercase;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-header nav a:hover{
-    color: var(--fg);
-    background-color: var(--links);
-    text-transform: uppercase;
+header nav a:hover {
+  color: var(--fg);
+  background-color: var(--links);
+  text-transform: uppercase;
 }
 
-.active{
-    background-color: var(--links);
-    color: var(--fg);
+.active {
+  background-color: var(--links);
+  color: var(--fg);
 }
-
-
 
 /* =========================== */
 /* ==== SECTION 1 STYLES ==== */
 /* ========================= */
 
-.section1, .section3{
-    /* background-color: var(--bg3); */
-    padding: var(--space1);
-    
+.section1,
+.section3 {
+  /* background-color: var(--bg3); */
+  padding: var(--space1);
 }
 
 .section1 p,
-#more p{
-    line-height: 25px;
+#more p {
+  line-height: 25px;
 }
 
-
-#more{
-    display: none;
+#more {
+  display: none;
 }
 
 /* =========================== */
 /* ==== SECTION 2 STYLES ==== */
 /* ========================= */
 
-.section2{
-    padding: var(--space2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.section2 {
+  padding: var(--space2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.gridBoxes{
-    display: grid;
-    gap: 10px;
-    width: 80%;
+.gridBoxes {
+  display: grid;
+  gap: 10px;
+  width: 80%;
 }
 
-.item{
-    height: 120px;
-    padding: var(--space2);
-    border-radius: var(--space2);
+.item {
+  height: 120px;
+  padding: var(--space2);
+  border-radius: var(--space2);
 
-    margin-bottom: var(--space2);
-    box-shadow: var(--boxShadow1);
+  margin-bottom: var(--space2);
+  box-shadow: var(--boxShadow1);
 }
 
 .item1 .nbr,
-.item3 .nbr{
-    color: var(--links);
+.item3 .nbr {
+  color: var(--links);
 }
-.item1, .item3{
-    background-color: var(--green);   
-}
-
-.item2{
-    background-color: var(--purplebg);
+.item1,
+.item3 {
+  background-color: var(--green);
 }
 
-.nbr{
-    display: block;
-    font-size: 40px;
-    font-family: "Gravitas One", serif;
+.item2 {
+  background-color: var(--purplebg);
 }
 
-.item a{
-    color: var(--fg);
-    font-style: italic;
-    transition: all 0.4s ease;
+.nbr {
+  display: block;
+  font-size: 40px;
+  font-family: "Gravitas One", serif;
 }
 
-.item a:hover{
-    background-color: var(--links);
-    letter-spacing: 2px;
-    padding: 2px;
+.item a {
+  color: var(--fg);
+  font-style: italic;
+  transition: all 0.4s ease;
+}
+
+.item a:hover {
+  background-color: var(--links);
+  letter-spacing: 2px;
+  padding: 2px;
 }
 
 /* ============================= */
 /* ==== SECTION 3 STYLES ====== */
 /* =========================== */
-.section3, header{
-    background-color: var(--bg2);
-    height: 100%;
+.section3,
+header {
+  background-color: var(--bg2);
+  height: 100%;
 }
 
-.section3{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+.section3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.section3 img{
-    width: 60px;
-    padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: opacity 0.4s ease-in;
+.section3 img {
+  width: 60px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.4s ease-in;
 }
 
-.section3 img:hover{
-    opacity: 50%;
+.section3 img:hover {
+  opacity: 50%;
 }
 
 /* #asideLeft{
     display: none;
 } */
 
-.logoWrapper{
-    padding: 10px;
-    width: 70%;
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
+.logoWrapper {
+  padding: 10px;
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-
 
 /* =========================== */
 /* ===== FOOTER STYLES ====== */
 /* ========================= */
 
-footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 /* --------------------------------- */
 /*          CONTACT STYLES           */
 /* --------------------------------- */
 
-.formContainer{
-    width: 300px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    background-color: #d8d8d8;
-    padding: 20px;
-    border-radius: var(--space1);
-    margin: 40px auto;
-    box-sizing: border-box;
+.formContainer {
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #d8d8d8;
+  padding: 20px;
+  border-radius: var(--space1);
+  margin: 40px auto;
+  box-sizing: border-box;
 }
 
-.formContainer h3{
-    font-size: 30px;
-    margin: 0;
-    text-align: center;
+.formContainer h3 {
+  font-size: 30px;
+  margin: 0;
+  text-align: center;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    gap: var(--space2);
-    margin: var(--space2);
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space2);
+  margin: var(--space2);
 }
 
-
-
-#name, #email{
-    width: 100%;
-    padding: 4px;
-    margin-bottom: 10px;
+#name,
+#email {
+  width: 100%;
+  padding: 4px;
+  margin-bottom: 10px;
 }
 
-.nameEmailWrapper{
-    width: 100%;
-    /* height: 120px; */
-    margin-bottom: var(--space1);
-    
+.nameEmailWrapper {
+  width: 100%;
+  /* height: 120px; */
+  margin-bottom: var(--space1);
 }
-
 
 #missingName,
 #missingEmail,
 #validEmail,
 #noCheck {
-    margin: 10px 10px;
-    color: red;
-    font-size: 14px;
+  margin: 10px 10px;
+  color: red;
+  font-size: 14px;
 }
-
 
 /* ========================================== */
 /* ============= TABLET LAYOUT ============= */
 /* ======================================== */
 @media (min-width: 600px) {
-     .container{
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        grid-template-areas: 
-        "header header header"
-        "main main main"
-        "footer footer footer"; 
-    } 
- }
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "header header header"
+      "main main main"
+      "footer footer footer";
+  }
+}
 /* ========================================== */
 /* ============= DESKTOP LAYOUT ============ */
 /* ======================================== */
 @media (min-width: 1024px) {
-
-    body{
-        background-color: var(--bg2);
-    }
-  .container{
+  body {
+    background-color: var(--bg2);
+  }
+  .container {
     grid-template-columns: 200px auto auto 200px;
     grid-template-rows: 140px auto 200px;
-    grid-template-areas: 
-    "asideLeft header header asideRight"
-    "asideLeft main main asideRight"
-    "footer footer footer footer";
+    grid-template-areas:
+      "asideLeft header header asideRight"
+      "asideLeft main main asideRight"
+      "footer footer footer footer";
   }
 
-  #asideRight, #asideLeft{
+  #asideRight,
+  #asideLeft {
     background-color: var(--fg);
     color: var(--bg);
   }
 
-  .logoWrapper{
+  .logoWrapper {
     display: flex;
     flex-direction: row;
   }
 
-.gridBoxes{
+  .gridBoxes {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 
     gap: 10px;
     width: 70%;
-}
+  }
 
-.item{
+  .item {
     height: 300px;
-}
-.nbr{
+  }
+  .nbr {
     font-size: 60px;
-}
-.item p{
+  }
+  .item p {
     font-size: 20px;
-}
+  }
 
-
-/* Centers main contenet */
-.section1{
+  /* Centers main contenet */
+  .section1 {
     margin: 0 auto;
     width: 70%;
-}
-
-
+  }
 }
