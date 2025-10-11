@@ -13,26 +13,20 @@ function validateForm() {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        // clear old msg:
+        missingName.textContent = "";
+        missingEmail.textContent = "";
+        validEmail.textContent = "";
+        noCheck.textContent = "";
+
+        // Validate name
         if (name.value === "") {
-            // clear old msg:
-            missingName.textContent = "";
             const noName = document.createElement("p");
             noName.textContent = "Please fill out your name."
             missingName.append(noName);
             return false;
-        }
 
-        if (email.value === "") {
-            missingEmail.textContent = "";
-            const noEmail = document.createElement("p");
-            noEmail.textContent = "Please fill out your email."
-            missingEmail.append(noEmail);
-            return false;
-        }
-
-        if (/\d/.test(name.value)) {
-            missingName.textContent = "";
-
+        } else if (/\d/.test(name.value)) {
             const errorName = document.createElement("p");
             errorName.textContent = "Please enter a valid name."
 
@@ -40,10 +34,13 @@ function validateForm() {
             return false;
         }
 
-        if (!/\S+@\S+\.\S+/.test(email.value.trim())) {
-            validEmail.textContent = "";
-            missingEmail.textContent = "";
-
+        // Validate email
+        if (email.value.trim() === "") {
+            const noEmail = document.createElement("p");
+            noEmail.textContent = "Please fill out your email."
+            missingEmail.append(noEmail);
+            return false;
+        } else if (!/\S+@\S+\.\S+/.test(email.value.trim())) {
             const errorEmail = document.createElement("p");
             errorEmail.textContent = "Please enter a valid email."
 
@@ -51,17 +48,19 @@ function validateForm() {
             return false;
         }
 
+        // Checkbox validatiom
         if (!checkbox.checked) {
-            noCheck.textContent = "";
-
             const checkError = document.createElement("p");
             checkError.textContent = "You must confirm before sumbitting.";
             noCheck.append(checkError)
             return false;
         }
 
-        alert("Thank you for contacting us!");
+        else {
+            alert("Thank you for contacting us!");
         return true;
+        }
+        
     })
     
 }
