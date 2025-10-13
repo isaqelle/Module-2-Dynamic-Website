@@ -50,56 +50,17 @@ document.addEventListener("DOMContentLoaded", () => {
       // Checkbox validatiom
       if (!checkbox.checked) {
         const checkError = document.createElement("p");
-        checkError.textContent = "You must confirm before sumbitting.";
+        checkError.textContent = "You must confirm before submitting.";
         noCheck.append(checkError);
         return false;
       } else {
-        alert("Thank you for contacting us!");
+          alert("Thank you for contacting us!");
+          
         return true;
       }
     });
   }
   validateForm()
 
-  // FOR POSTS
-  async function getPosts() {
-    const API = "https://dummyjson.com/posts";
-    const postContainer = document.getElementById("postsContainer");
-    
-
-    try {
-      const response = await fetch(API);
-
-      if (!response.ok) {
-        throw new Error("Error: " + response.status);
-      }
-
-      const data = await response.json();
-      // debug
-      // console.log(data);
-      data.posts.array.forEach(post => {
-        const postDiv = document.createElement("div");
-        // creates the class 'post'
-        postDiv.classList.add("post")
-
-        postDiv.innerHTML = `
-        <h2>${post.title}</h2>
-        <p>${post.body}</p>
-        <p>Views: ${post.views} | Likes: ${post.reactions.likes} | UserID: ${post.userID}`
-
-        postContainer.append(postDiv);
-      });
-      
-
-
-
-      
-      
-    } catch (error) {
-      console.error("Error fetching data: " + error)
-    }
-  
-  }
-  getPosts();
 })
 
