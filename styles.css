@@ -351,14 +351,27 @@ form {
 }
 
 /* POSTS styles */
-.container {
 
-}
-#postsContainer{
-  border: 1px solid red;
+.wrapper-posts{
+  /* border: 2px solid var(--fg); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   
+  margin: var(--space2);
+  padding: var(--space2);
+  background-color: #d8d8d8;
 }
 
+.pagination{
+  padding: var(--space2);
+}
+
+.post{
+  background-color: var(--bg);
+  padding: var(--space1);
+  margin: var(--space1);
+}
 
 
 /* ========================================== */
@@ -423,5 +436,6 @@ form {
   .section1 {
     margin: 0 auto;
     width: 70%;
+
   }
 }
