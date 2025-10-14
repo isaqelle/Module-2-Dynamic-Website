@@ -350,6 +350,17 @@ form {
   font-size: 14px;
 }
 
+/* POSTS styles */
+.container {
+
+}
+#postsContainer{
+  border: 1px solid red;
+  
+}
+
+
+
 /* ========================================== */
 /* ============= TABLET LAYOUT ============= */
 /* ======================================== */

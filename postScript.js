@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const data = await response.json();
-      // debug
-      // console.log(data);
+
       data.posts.forEach(post => {
         const postDiv = document.createElement("div");
         // creates the class 'post'
