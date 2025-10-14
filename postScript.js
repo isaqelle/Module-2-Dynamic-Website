@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       updatePagination();
     } catch (err) {
       console.error("Error loading posts: ", err);
-      postsContainer.innerHTML = `<p style="color:red;">Failed to load posts.</p>`;
+      postsContainer.innerHTML = "Failed to load posts.";
     }
   }
 
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // EVENT LISTENERS:
   prevBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+
     if (currentPage > 1) {
       currentPage--;
       renderPage(currentPage);
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   nextBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+
     if (currentPage < totalPages) {
       currentPage++;
       renderPage(currentPage);
@@ -78,12 +78,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   pageLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
-      e.preventDefault();
+
       const page = parseInt(link.dataset.page);
       if (page && page !== currentPage) {
         currentPage = page;
         renderPage(currentPage);
         updatePagination();
+        // window.scrollTo({
+        //   top: 100,
+        //   left: 100,
+        //   behavior: "smooth",
+        // });
       }
     });
   });

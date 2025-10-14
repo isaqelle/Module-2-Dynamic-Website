@@ -104,7 +104,7 @@ h3,
 
 button,
 .section1 button,
-form button {
+form button{
   background-color: var(--fg);
   border: none;
   border-radius: var(--space3);
@@ -117,7 +117,8 @@ form button {
   letter-spacing: 2px;
   transition: all 0.4s ease-in;
 }
-button:hover {
+button:hover,
+.page-link:hover {
   background-color: var(--links);
   color: var(--fg);
 }
@@ -370,7 +371,43 @@ form {
 .post{
   background-color: var(--bg);
   padding: var(--space1);
-  margin: var(--space1);
+  margin: var(--space2);
+
+}
+
+.post p{
+  margin-bottom: 20px;
+}
+
+.post small{
+  font-weight: bold;
+  margin-top: var(--space3);
+}
+
+.pagination {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.page-link{
+  text-decoration: none;
+  color: var(--links);
+  background-color: var(--fg);
+  padding: 10px 15px;
+  border-radius: 0px;
+}
+
+#prev, #next{
+  text-align: center;
+  text-decoration: none;
+  color: var(--fg);
+  
+}
+
+.activePage{
+  background-color: var(--links);
+  color: var(--fg);
 }
 
 
