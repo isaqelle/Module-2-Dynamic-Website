@@ -57,12 +57,14 @@ import { loadComments, renderComments } from "./commentsScript.js";
         <div class="post">
           <h2>${post.title}</h2>
           <p>${post.body}</p>
+        
           <small>
             Username: <span class="username" data-userid="${post.userId}">${username}</span>
             | Likes: ${post.reactions.likes}
             | Dislikes: ${post.reactions.dislikes}
             | Tags: ${post.tags}
           </small>
+          <h4>Comments:</h4>
           <div id="comments-${post.id}" class="comments"></div>
         </div>`;
 

@@ -95,6 +95,7 @@ footer {
 h1,
 h2,
 h3,
+h4,
 .nbr {
   font-family: "Bodoni Moda", serif;
   margin: 10px;
@@ -382,6 +383,20 @@ form {
 .post small{
   font-weight: bold;
   margin-top: var(--space3);
+}
+
+.comments{
+  background-color:#ebebeb;
+  padding: 10px;
+}
+
+small{
+  background-color: var(--green);
+  color: var(--bg);
+  text-align: center;
+  display: block;
+  padding: 5px;
+
 }
 
 .username{
