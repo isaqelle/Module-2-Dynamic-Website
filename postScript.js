@@ -1,7 +1,7 @@
 import { loadComments, renderComments } from "./commentsScript.js";
 
 
-document.addEventListener("DOMContentLoaded", async () => {
+
   const postsPerPage = 4; //set posts per page
   const postsContainer = document.getElementById("postsContainer");
   const prevBtn = document.getElementById("prev");
@@ -10,10 +10,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let posts = [];
   let comments = [];
+  let users = [];
   let currentPage = 1;
   let totalPages = 1;
 
-  // LOADS THE USERS
+  // LOADS USERS FROM DUMMYJSON
   async function getUsers() {
     try{
     const response = await fetch("https://dummyjson.com/users?limit=100");
@@ -31,13 +32,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       const response = await fetch(`https://dummyjson.com/posts?limit=12`);
       if (!response.ok) throw new Error("Error: " + response.status); //error if API not fetching
+
       const data = await response.json(); //turn into js object
       return data.posts || [];
-      // totalPages = Math.ceil(posts.length / postsPerPage); //counts total pages (3)
-      // renderPage(currentPage);
-      // updatePagination();
-    } catch (err) {
-      console.error("Error loading posts: ", err);
+    } catch (error) {
+      console.error("Error loading posts: ", error);
       return [];
     }
   }
@@ -53,16 +52,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       .map(
         (post) => {
           // rendering username, if undefined, "Unknown":
-          const username = userMap[post.userId] || "Unknown";
-         return`
+        const username = userMap[post.userId] || "Unknown";
+        return `
         <div class="post">
           <h2>${post.title}</h2>
           <p>${post.body}</p>
-          <small>Username: ${username} | Likes: ${post.reactions.likes} | Dislikes: ${post.reactions.dislikes} | Tags: ${post.tags}</small>
-        
-        
-        <div id="comments-${post.id}" class="comments"></div>
-        </div>`
+          <small>
+            Username: <span class="username" data-userid="${post.userId}">${username}</span>
+            | Likes: ${post.reactions.likes}
+            | Dislikes: ${post.reactions.dislikes}
+            | Tags: ${post.tags}
+          </small>
+          <div id="comments-${post.id}" class="comments"></div>
+        </div>`;
+
       })
       .join("");
     
@@ -117,11 +120,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
-  // load posts+comments:
-  const [loadedPosts, loadedComments, users] = await Promise.all([getPosts(), loadComments(), getUsers()])
-  // await getPosts();
+    // OPEN MODAL WITH USER INFO:
+    // load posts+comments+users:
+
+  const [loadedPosts, loadedComments, loadedUsers] = await Promise.all([getPosts(), loadComments(), getUsers()])
   posts = loadedPosts;
   comments = loadedComments;
+  users = loadedUsers;
 
   const userMap = {};
   users.forEach(user => userMap[user.id] = user.username)
@@ -131,4 +136,31 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   renderPage(currentPage);
   updatePagination();
-});
+
+
+  postsContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("username")) {
+      const userId = e.target.dataset.userid;
+      const user = users.find(use => use.id == userId);
+      if (!user) return;
+
+      document.getElementById("modalUsername").textContent = user.username;
+      document.getElementById("modalName").textContent = `Name: ${user.firstName} ${user.lastName}`;
+      document.getElementById("modalAge").textContent = "Age: " + user.age;
+      document.getElementById("modalEmail").textContent = "Email: " + user.email;
+      document.getElementById("modalPhone").textContent = "Phone: " + user.phone;
+
+      document.getElementById("userModal").style.display = "block";
+    }
+  });
+  // close:
+  document.getElementById("closeModal").addEventListener("click", () => {
+    document.getElementById("userModal").style.display = "none";
+
+    
+  });
+
+
+    
+
+  
