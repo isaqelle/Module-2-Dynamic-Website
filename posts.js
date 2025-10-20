@@ -1,4 +1,4 @@
-import { loadComments, renderComments } from "./commentsScript.js";
+import { loadComments, renderComments } from "./comments.js";
 
 
 
