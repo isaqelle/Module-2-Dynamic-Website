@@ -1,4 +1,4 @@
-
+// Export this function to posts.js
 export async function loadComments() {
     try {
         const response = await fetch("https://dummyjson.com/comments?limit=150")
@@ -15,6 +15,7 @@ export async function loadComments() {
     }
 }
 
+// Export this function to posts.js
 export function renderComments(postId, commentsContainer, comments) {
     const postComments = comments.filter((com) => com.postId === postId);
 

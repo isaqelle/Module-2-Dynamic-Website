@@ -1,6 +1,7 @@
+// Importing "loadComments()" and "renderComments()" functions from comments.js. 
+// Importing "setupPagination()" function from pagination.js
 import { loadComments, renderComments } from "./comments.js";
-
-
+import { setupPagination } from "./pagination.js";
 
   const postsPerPage = 4; //set posts per page
   const postsContainer = document.getElementById("postsContainer");
@@ -13,6 +14,10 @@ import { loadComments, renderComments } from "./comments.js";
   let users = [];
   let currentPage = 1;
   let totalPages = 1;
+    
+  function getCurrentPage() { return currentPage; }
+  function setCurrentPage(p) { currentPage = p; }
+  function getTotalPages() { return totalPages; }
 
   // LOADS USERS FROM DUMMYJSON
   async function getUsers() {
@@ -81,55 +86,67 @@ import { loadComments, renderComments } from "./comments.js";
 
   }
 
+// PAGINATION:
+const { updatePagination } = setupPagination({
+  prevBtn,
+  nextBtn,
+  pageLinks,
+  renderPage,
+  getCurrentPage,
+  setCurrentPage,
+  getTotalPages
+});
   // PAGINATION
-  function updatePagination() {
-    prevBtn.style.pointerEvents = currentPage === 1 ? "none" : "auto";
-    nextBtn.style.pointerEvents = currentPage === totalPages ? "none" : "auto";
-    pageLinks.forEach((link) => {
-      const page = parseInt(link.dataset.page);
-      link.classList.toggle("activePage", page === currentPage);
-    });
-  }
+  // function updatePagination() {
+  //   prevBtn.style.pointerEvents = currentPage === 1 ? "none" : "auto";
+  //   nextBtn.style.pointerEvents = currentPage === totalPages ? "none" : "auto";
+  //   pageLinks.forEach((link) => {
+  //     const page = parseInt(link.dataset.page);
+  //     link.classList.toggle("activePage", page === currentPage);
+  //   });
+  // }
 
-  // EVENT LISTENERS:
-  prevBtn.addEventListener("click", () => {
+  // // EVENT LISTENERS:
+  // prevBtn.addEventListener("click", () => {
 
-    if (currentPage > 1) {
-      currentPage--;
-      renderPage(currentPage);
-      updatePagination();
-    }
-  });
+  //   if (currentPage > 1) {
+  //     currentPage--;
+  //     renderPage(currentPage);
+  //     updatePagination();
+  //   }
+  // });
 
-  nextBtn.addEventListener("click", () => {
+  // nextBtn.addEventListener("click", () => {
 
-    if (currentPage < totalPages) {
-      currentPage++;
-      renderPage(currentPage);
-      updatePagination();
-    }
-  });
+  //   if (currentPage < totalPages) {
+  //     currentPage++;
+  //     renderPage(currentPage);
+  //     updatePagination();
+  //   }
+  // });
 
-  pageLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+  // pageLinks.forEach((link) => {
+  //   link.addEventListener("click", () => {
 
-      const page = parseInt(link.dataset.page);
-      if (page && page !== currentPage) {
-        currentPage = page;
-        renderPage(currentPage);
-        updatePagination();
-      }
-    });
-  });
+  //     const page = parseInt(link.dataset.page);
+  //     if (page && page !== currentPage) {
+  //       currentPage = page;
+  //       renderPage(currentPage);
+  //       updatePagination();
+  //     }
+  //   });
+  // });
 
-    // OPEN MODAL WITH USER INFO:
+    
     // load posts+comments+users:
 
   const [loadedPosts, loadedComments, loadedUsers] = await Promise.all([getPosts(), loadComments(), getUsers()])
+    // Store the functions in memory:
   posts = loadedPosts;
   comments = loadedComments;
   users = loadedUsers;
 
+  // gets the usernames by ther user id
   const userMap = {};
   users.forEach(user => userMap[user.id] = user.username)
 
@@ -139,13 +156,13 @@ import { loadComments, renderComments } from "./comments.js";
   renderPage(currentPage);
   updatePagination();
 
-
+// OPEN MODAL WITH USER INFO:
   postsContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("username")) {
       const userId = e.target.dataset.userid;
       const user = users.find(use => use.id == userId);
       if (!user) return;
-
+      // fill in the modal window:
       document.getElementById("modalUsername").textContent = user.username;
       document.getElementById("modalName").textContent = `Name: ${user.firstName} ${user.lastName}`;
       document.getElementById("modalAge").textContent = "Age: " + user.age;
@@ -155,7 +172,7 @@ import { loadComments, renderComments } from "./comments.js";
       document.getElementById("userModal").style.display = "block";
     }
   });
-  // close:
+  // close the window:
   document.getElementById("closeModal").addEventListener("click", () => {
     document.getElementById("userModal").style.display = "none";
 
