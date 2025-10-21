@@ -96,48 +96,6 @@ const { updatePagination } = setupPagination({
   setCurrentPage,
   getTotalPages
 });
-  // PAGINATION
-  // function updatePagination() {
-  //   prevBtn.style.pointerEvents = currentPage === 1 ? "none" : "auto";
-  //   nextBtn.style.pointerEvents = currentPage === totalPages ? "none" : "auto";
-  //   pageLinks.forEach((link) => {
-  //     const page = parseInt(link.dataset.page);
-  //     link.classList.toggle("activePage", page === currentPage);
-  //   });
-  // }
-
-  // // EVENT LISTENERS:
-  // prevBtn.addEventListener("click", () => {
-
-  //   if (currentPage > 1) {
-  //     currentPage--;
-  //     renderPage(currentPage);
-  //     updatePagination();
-  //   }
-  // });
-
-  // nextBtn.addEventListener("click", () => {
-
-  //   if (currentPage < totalPages) {
-  //     currentPage++;
-  //     renderPage(currentPage);
-  //     updatePagination();
-  //   }
-  // });
-
-  // pageLinks.forEach((link) => {
-  //   link.addEventListener("click", () => {
-
-  //     const page = parseInt(link.dataset.page);
-  //     if (page && page !== currentPage) {
-  //       currentPage = page;
-  //       renderPage(currentPage);
-  //       updatePagination();
-  //     }
-  //   });
-  // });
-
-    
     // load posts+comments+users:
 
   const [loadedPosts, loadedComments, loadedUsers] = await Promise.all([getPosts(), loadComments(), getUsers()])
