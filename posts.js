@@ -71,7 +71,7 @@ import { loadComments, renderComments } from "./comments.js";
       })
       .join("");
     
-    // ATTATCH COMMENTS TO POSTS:
+    // ATTATCH COMMENTS TO POSTS (imported):
     pagePosts.forEach((post) => {
       const commentsContainer = document.getElementById(`comments-${post.id}`);
       if (commentsContainer) {

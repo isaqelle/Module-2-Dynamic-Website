@@ -1,7 +1,7 @@
 
 export async function loadComments() {
     try {
-        const response = await fetch("https://dummyjson.com/comments?limit=200")
+        const response = await fetch("https://dummyjson.com/comments?limit=150")
         // if comments wont load:
         if (!response.ok) throw new Error("Error: " + response.status)
         
