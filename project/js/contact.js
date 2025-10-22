@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const noCheck = document.getElementById("noCheck");
     const noMessage = document.getElementById("noMessage")
 
+    
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
@@ -55,6 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const messageError = document.createElement("p");
         messageError.textContent = "Please enter a message"
         noMessage.append(messageError)
+
+        
         return false;
       }
 
@@ -73,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     });
+
   }
   validateForm()
   
