@@ -4,11 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const name = document.getElementById("name");
     const email = document.getElementById("email");
     const checkbox = document.getElementById("checkbox");
+    const messageBox = document.getElementById("message")
 
     const missingName = document.getElementById("missingName");
     const missingEmail = document.getElementById("missingEmail");
     const validEmail = document.getElementById("validEmail");
     const noCheck = document.getElementById("noCheck");
+    const noMessage = document.getElementById("noMessage")
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -18,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       missingEmail.textContent = "";
       validEmail.textContent = "";
       noCheck.textContent = "";
+      noMessage.textContent = "";
 
       // Validate name
       if (name.value === "") {
@@ -47,6 +50,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
       }
 
+       // No message
+      if (messageBox.value.trim() === "") {
+        const messageError = document.createElement("p");
+        messageError.textContent = "Please enter a message"
+        noMessage.append(messageError)
+        return false;
+      }
+
+
       // Checkbox validatiom
       if (!checkbox.checked) {
         const checkError = document.createElement("p");
@@ -54,13 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
         noCheck.append(checkError);
         return false;
       } else {
-          alert("Thank you for contacting us!");
-          
+        alert("Thank you for contacting us!");
+        form.reset();
         return true;
       }
+
+    
     });
   }
   validateForm()
+  
 
 })
 

@@ -331,10 +331,15 @@ form {
 }
 
 #name,
-#email {
+#email,
+#message {
   width: 100%;
   padding: 4px;
   margin-bottom: 10px;
+}
+#message{
+  height: 100px;
+  resize: none;
 }
 
 .nameEmailWrapper {
@@ -343,14 +348,19 @@ form {
   margin-bottom: var(--space1);
 }
 
+
+
+
 #missingName,
 #missingEmail,
 #validEmail,
-#noCheck {
+#noCheck,
+#noMessage {
   margin: 10px 10px;
   color: red;
   font-size: 14px;
 }
+
 
 /* POSTS styles */
 
