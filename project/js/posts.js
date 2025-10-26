@@ -22,11 +22,11 @@ import { setupPagination } from "./pagination.js";
   // LOADS USERS FROM DUMMYJSON
   async function getUsers() {
     try{
-    const response = await fetch("https://dummyjson.com/users?limit=100");
+    const response = await fetch("https://dummyjson.com/users?limit=150");
     if (!response.ok) throw new Error("Error: " + response.status);
 
-    const data = await response.json();
-    return data.users || [];
+    const data = await response.json(); //turn into js object
+    return data.users ?? []; //returns data if it exists, or an empy array
   } catch (error) {
     console.error("Error loading users: ", error);
     return [];
@@ -35,11 +35,11 @@ import { setupPagination } from "./pagination.js";
   // LOADS POSTS FROM DUMMYJSON
   async function getPosts() {
     try {
-      const response = await fetch(`https://dummyjson.com/posts?limit=12`);
+      const response = await fetch("https://dummyjson.com/posts?limit=12");
       if (!response.ok) throw new Error("Error: " + response.status); //error if API not fetching
 
       const data = await response.json(); //turn into js object
-      return data.posts || [];
+      return data.posts ?? []; //returns data if it exists, or an empy array
     } catch (error) {
       console.error("Error loading posts: ", error);
       return [];
@@ -76,7 +76,7 @@ import { setupPagination } from "./pagination.js";
       })
       .join("");
     
-    // ATTATCH COMMENTS TO POSTS (imported):
+    // ATTATCH COMMENTS TO POSTS (imported renderComments()):
     pagePosts.forEach((post) => {
       const commentsContainer = document.getElementById(`comments-${post.id}`);
       if (commentsContainer) {
