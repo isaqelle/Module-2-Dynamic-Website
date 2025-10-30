@@ -1,13 +1,20 @@
 // Export this function to posts.js
-export async function loadComments() {
+export async function loadComments(posts) {
     try {
-        const response = await fetch("https://dummyjson.com/comments?limit=150")
+        // all posts gets liked to their comment by their id
+        const comPromises = posts.map(async(post) => {
+        const response = await fetch(`https://dummyjson.com/comments/post/${post.id}`)
         // if comments wont load:
         if (!response.ok) throw new Error("Error: " + response.status)
         
         // turn into js object:
         const data = await response.json();
-        return data.comments || [];
+        return data.comments || [];    
+        })
+        
+        // wait for all comments
+        const commentsArrays = await Promise.all(comPromises)
+        return commentsArrays.flat();
         
     } catch (error) {
         console.error("Error loading comments: ", error);

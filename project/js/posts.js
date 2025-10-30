@@ -57,7 +57,9 @@ import { setupPagination } from "./pagination.js";
       .map(
         (post) => {
           // rendering username, if undefined, "Unknown":
-        const username = userMap[post.userId] || "Unknown";
+          const username = userMap[post.userId] || "Unknown";
+          // counts # comments per post
+          const commentLegth = comments.filter((com) => com.postId === post.id).length
         return `
         <div class="post">
           <h2>${post.title}</h2>
@@ -69,7 +71,7 @@ import { setupPagination } from "./pagination.js";
             | Dislikes: ${post.reactions.dislikes}
             | Tags: ${post.tags}
           </small>
-          <h4>Comments:</h4>
+          <h4>Comments (${commentLegth}):</h4>
           <div id="comments-${post.id}" class="comments"></div>
         </div>`;
 
@@ -98,7 +100,8 @@ const { updatePagination } = setupPagination({
 });
     // load posts+comments+users:
 
-  const [loadedPosts, loadedComments, loadedUsers] = await Promise.all([getPosts(), loadComments(), getUsers()])
+const [loadedPosts, loadedUsers] = await Promise.all([getPosts(), getUsers()])
+const loadedComments = await loadComments(loadedPosts);
     // Store the functions in memory:
   posts = loadedPosts;
   comments = loadedComments;
